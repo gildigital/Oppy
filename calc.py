@@ -100,13 +100,13 @@ else:
     with open(results_file, 'rb') as f:
         all_results = pickle.load(f)
 
-print(all_results)
+# print(all_results)
 
 # Prepare data for plotting
-slopes = []  # Slopes between successive spikes
 colors = ['red', 'green', 'blue', 'orange', 'purple']  # colors for spikes 1-5
 x = []  # Numeric prefixes
 y = []  # B values
+
 
 # Populate x and y from all_results
 for numeric_prefix, b_vals in all_results.items():
@@ -140,13 +140,16 @@ for i in range(5):
     y_values = [y_sorted[j] for j in range(len(y_sorted)) if j % 5 == i]
 
     # Debugging print statements
-    print(f"Spike {i + 1}: x = {x_values}, y = {y_values}")
+    #print(f"Spike {i + 1}: x = {x_values}, y = {y_values}")
 
     # Plotting with separated values
-    plt.scatter(x_values[0], y_values[0], color=colors[i], label=f'Spike {i + 1}')
+    plt.scatter(x_values, y_values, color=colors[i], label=f'Spike {i + 1}')
 
 plt.title('Value of B for Spikes 1-5 vs Frequency (kHz)')
 plt.xlabel('Frequency (kHz)')
 plt.ylabel('B value')
 plt.legend()
 plt.show()
+
+#print(f"x_values: {x_values}")
+#print(f"y_values: {y_values}")
