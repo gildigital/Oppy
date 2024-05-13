@@ -57,7 +57,7 @@ if not os.path.exists(figures_dir):
 
 # Save the plot as an image with 300 dpi in the figures directory
 output_filename = f"87Rb_kHz_high_field_data_plot.png"
-output_path = os.path.join(figures_dir, output_filename)
-plt.savefig(output_path, bbox_inches='tight', dpi=300)  # Save at 300 dpi
+output_path = os.path.join(figures_dir, output_filename) # Bad save path, just main dir now.
+plt.savefig(output_filename, bbox_inches='tight', dpi=300)  # Save at 300 dpi
 
 plt.show()
